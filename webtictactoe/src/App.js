@@ -22,8 +22,10 @@ function App() {
 
       <main>
         <div className="container">
-          <div style={{ marginTop: '100px' }}>
-            <h1 className="title" style={{ textAlign: 'center', marginBottom: '1.5rem' }}>WebTicTacToe</h1>
+          <div style={{ minHeight: '72vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+            <h1 className="title" style={{ textAlign: 'center', marginBottom: '1.5rem', fontSize: '2.3rem', fontWeight: 600, letterSpacing: '0.012em' }}>
+              WebTicTacToe
+            </h1>
             <TicTacToe />
           </div>
         </div>

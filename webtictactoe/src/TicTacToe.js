@@ -49,14 +49,19 @@ function TicTacToe() {
 
   // Board rendering
   function renderSquare(idx) {
+    const value = squares[idx];
+    let symbolClass = '';
+    if (value === 'X') symbolClass = 'ttt-x';
+    if (value === 'O') symbolClass = 'ttt-o';
     return (
       <button
-        className={`ttt-square${squares[idx] ? ' ttt-filled' : ''}`}
+        className={`ttt-square${value ? ' ttt-filled' : ''} ${symbolClass}`}
         onClick={() => handleSquareClick(idx)}
         aria-label={`cell ${Math.floor(idx / 3) + 1},${(idx % 3) + 1}`}
         key={idx}
+        tabIndex={0}
       >
-        {squares[idx]}
+        {value}
       </button>
     );
   }

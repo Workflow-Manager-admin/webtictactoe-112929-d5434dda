@@ -9,38 +9,55 @@
   --ttt-winner-bg: #e9faef;
 }
 
+/* Improved main container: centered, spacious, light-themed, responsive */
 .ttt-outer-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 80px;
-  min-height: 40vh;
+  justify-content: center;
+  margin-top: 0;
+  min-height: 60vh;
+  background: rgba(255,255,255,0.01);
+  padding: 44px 0 40px 0;
+  border-radius: 16px;
+  box-shadow: 0 2px 26px 0 rgba(33,150,243,0.06);
+  max-width: 420px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 2;
 }
 
 .ttt-status {
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
-  background-color: var(--ttt-winner-bg);
-  padding: 0.65rem 1.5rem;
-  border-radius: 1rem;
-  box-shadow: 0 1px 8px 0 rgba(76,175,80,0.07);
-  color: #232323;
+  font-size: 1.18rem;
+  margin-bottom: 2.1rem;
+  background-color: #fff;
+  padding: 0.77rem 2.2rem 0.77rem 2.2rem;
+  border-radius: 1.1rem;
+  box-shadow: 0 4px 24px 0 rgba(68, 196, 204, 0.11);
+  color: #242b36;
   font-weight: 500;
-  letter-spacing: 0.01em;
-  min-width: 160px;
+  letter-spacing: 0.013em;
+  min-width: 182px;
   text-align: center;
+  border: 1.5px solid var(--ttt-border);
+  transition: box-shadow 0.24s, background 0.18s;
+  margin-top: 8px;
 }
 
 .ttt-winner {
   color: var(--ttt-secondary);
-  font-weight: bold;
-  font-size: 1.2em;
+  font-weight: 600;
+  font-size: 1.15em;
+  padding: 0 0.25em;
 }
 
 .ttt-player {
   color: var(--ttt-primary);
-  font-weight: bold;
-  text-shadow: 0 2px 4px #c4efd2;
+  font-weight: 600;
+  text-shadow: 0 2.5px 5px #d2f2e1;
+  font-size: 1.08em;
 }
 
 .ttt-board {
@@ -48,44 +65,62 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: var(--ttt-bg);
-  border-radius: 1.2rem;
-  padding: 2rem 2.4rem 2.5rem 2.4rem;
-  box-shadow: 0 2px 16px 0 rgba(33,150,243,0.09);
+  background: #fafdfe;
+  border-radius: 1.5rem;
+  padding: 2.2rem 2.6rem 2.8rem 2.6rem;
+  box-shadow: 0 8px 36px 0 rgba(27, 143, 196, 0.13);
+  border: 1.5px solid var(--ttt-border);
+  gap: 0.38rem;
+  transition: box-shadow 0.2s, border 0.17s;
 }
 
 .ttt-row {
   display: flex;
+  gap: 0.38rem;
+  margin-bottom: 0.09rem;
 }
 
 .ttt-square {
   background: #fff;
-  border: 2.5px solid var(--ttt-border);
-  width: 68px;
-  height: 68px;
-  font-size: 2.4rem;
-  font-weight: bold;
+  border: 2px solid var(--ttt-border);
+  width: 74px;
+  height: 74px;
+  font-size: 2.53rem;
+  font-weight: 700;
   color: var(--ttt-primary);
   outline: none;
-  margin: 0.2rem;
-  border-radius: 0.7rem;
+  border-radius: 0.95rem;
   cursor: pointer;
-  transition: border-color 0.15s, box-shadow 0.15s, background 0.17s;
-  box-shadow: 0 2px 6px 0 rgba(33,150,243,0.03);
+  transition: border-color 0.17s, box-shadow 0.17s, background 0.14s;
+  box-shadow: 0 2.5px 8px 0 rgba(33,150,243,0.06);
   display: flex;
   align-items: center;
   justify-content: center;
   user-select: none;
+  margin: 0;
+  position: relative;
+}
+
+.ttt-square.ttt-x {
+  color: var(--ttt-x-color);
+}
+
+.ttt-square.ttt-o {
+  color: var(--ttt-o-color);
 }
 
 .ttt-square:hover:not(.ttt-filled) {
   border-color: var(--ttt-accent);
   background: #f3faff;
+  box-shadow: 0 4px 11px 0 rgba(33,150,243,0.11);
+  z-index: 1;
 }
 
 .ttt-square.ttt-filled {
   cursor: default;
   background: #f7faf7;
+  border-color: var(--ttt-border);
+  opacity: 1;
 }
 
 .ttt-square:nth-child(3n+2) {
@@ -95,38 +130,11 @@
 .ttt-square:active {
   background: #e5eeea;
 }
-
 .ttt-square:focus {
-  box-shadow: 0 0 0 2px var(--ttt-accent);
-}
-
-.ttt-square {
-  transition: background-color 0.14s, box-shadow 0.14s;
+  box-shadow: 0 0 0 2.2px var(--ttt-accent), 0 2px 10px 0 rgba(33,150,243,0.07);
 }
 
 .ttt-square:disabled {
-  opacity: 0.4;
+  opacity: 0.5;
 }
 
-.ttt-square {
-  /* Distinguish X vs O in color */
-}
-
-.ttt-square:not(.ttt-filled)::after {
-  /* No after content */
-}
-
-.ttt-square.ttt-filled {
-  /* Set color based on X or O */
-}
-.ttt-square.ttt-filled {
-  color: var(--ttt-x-color);
-}
-.ttt-square.ttt-filled:contains('O') {
-  color: var(--ttt-o-color);
-}
-
-/* Style X and O differently using a class on element */
-.ttt-square.ttt-filled {
-  /* color overridden dynamically in JS or stays primary */
-}
