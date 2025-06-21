@@ -1,0 +1,132 @@
+:root {
+  --ttt-primary: #4CAF50;
+  --ttt-secondary: #FFC107;
+  --ttt-accent: #2196F3;
+  --ttt-bg: #f7faf7;
+  --ttt-border: #e0e0e0;
+  --ttt-x-color: var(--ttt-primary);
+  --ttt-o-color: var(--ttt-accent);
+  --ttt-winner-bg: #e9faef;
+}
+
+.ttt-outer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 80px;
+  min-height: 40vh;
+}
+
+.ttt-status {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  background-color: var(--ttt-winner-bg);
+  padding: 0.65rem 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 1px 8px 0 rgba(76,175,80,0.07);
+  color: #232323;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  min-width: 160px;
+  text-align: center;
+}
+
+.ttt-winner {
+  color: var(--ttt-secondary);
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.ttt-player {
+  color: var(--ttt-primary);
+  font-weight: bold;
+  text-shadow: 0 2px 4px #c4efd2;
+}
+
+.ttt-board {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--ttt-bg);
+  border-radius: 1.2rem;
+  padding: 2rem 2.4rem 2.5rem 2.4rem;
+  box-shadow: 0 2px 16px 0 rgba(33,150,243,0.09);
+}
+
+.ttt-row {
+  display: flex;
+}
+
+.ttt-square {
+  background: #fff;
+  border: 2.5px solid var(--ttt-border);
+  width: 68px;
+  height: 68px;
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: var(--ttt-primary);
+  outline: none;
+  margin: 0.2rem;
+  border-radius: 0.7rem;
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s, background 0.17s;
+  box-shadow: 0 2px 6px 0 rgba(33,150,243,0.03);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.ttt-square:hover:not(.ttt-filled) {
+  border-color: var(--ttt-accent);
+  background: #f3faff;
+}
+
+.ttt-square.ttt-filled {
+  cursor: default;
+  background: #f7faf7;
+}
+
+.ttt-square:nth-child(3n+2) {
+  /* No effect, but kept to demonstrate minimalism */
+}
+
+.ttt-square:active {
+  background: #e5eeea;
+}
+
+.ttt-square:focus {
+  box-shadow: 0 0 0 2px var(--ttt-accent);
+}
+
+.ttt-square {
+  transition: background-color 0.14s, box-shadow 0.14s;
+}
+
+.ttt-square:disabled {
+  opacity: 0.4;
+}
+
+.ttt-square {
+  /* Distinguish X vs O in color */
+}
+
+.ttt-square:not(.ttt-filled)::after {
+  /* No after content */
+}
+
+.ttt-square.ttt-filled {
+  /* Set color based on X or O */
+}
+.ttt-square.ttt-filled {
+  color: var(--ttt-x-color);
+}
+.ttt-square.ttt-filled:contains('O') {
+  color: var(--ttt-o-color);
+}
+
+/* Style X and O differently using a class on element */
+.ttt-square.ttt-filled {
+  /* color overridden dynamically in JS or stays primary */
+}
